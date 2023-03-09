@@ -1,0 +1,28 @@
+Architecture
+    - user register & login via http server
+    - send real-time messages via websocket server
+    - save messages to redis
+
+2 domains - user and chat
+redis stack
+    - user: RedisJSON, SET, SortedSET, k-v pair
+    (features: register, login, verify-contact, contact list)
+    - chat: RedisJSON, Redisearch
+    (features: new chat, chat history)
+
+client: react app
+model: chat and user schema
+pkg: httpserver, redisrepo, ws
+.env
+main
+
+mux for http server
+websocket for ws
+godotenv for .env
+cors for CORS
+redis for redis
+
+// to start http server
+go run main.go --server=http
+// to start websocket server
+go run main.go --server=websocket
